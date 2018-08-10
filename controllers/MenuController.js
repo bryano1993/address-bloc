@@ -12,7 +12,6 @@ module.exports = class MenuController {
     ];
     this.contacts = [];
   }
-
   main() {
     console.log(`Welcome to AddressBloc!`);
     inquirer

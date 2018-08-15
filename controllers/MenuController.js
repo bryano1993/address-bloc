@@ -53,4 +53,8 @@ module.exports = class MenuController {
     //method definition
     return this.contacts.length;
   }
+
+  remindMe() {
+    return "Learning is a life-long pursuit";
+  }
 };

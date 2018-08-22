@@ -1,12 +1,15 @@
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Contacts', {
+    return queryInterface.createTable("Contacts", {
+      //js converted to sql
+      //first arg is name of table, second is object of key-value pairs
       id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
+        //defines a property called key
+        allowNull: false, //property cannot be null
+        autoIncrement: true, //is incremented automatically (i.e., 1, 2, 3)
+        primaryKey: true, //primary key is a unique key that identifies an object
+        type: Sequelize.INTEGER //sets property type. Only values of this type are allowed
       },
       name: {
         type: Sequelize.STRING
@@ -25,6 +28,8 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Contacts');
+    return queryInterface.dropTable("Contacts");
   }
 };
+
+// pg_ctl -D C:/PostgreSQL/data/pg10 start

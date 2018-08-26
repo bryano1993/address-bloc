@@ -5,6 +5,7 @@ describe("ContactController", () => {
   beforeEach(done => {
     this.book = new ContactController();
 
+    // #1
     sequelize
       .sync({ force: true })
       .then(res => {
@@ -15,15 +16,25 @@ describe("ContactController", () => {
       });
   });
 
+  // #1
   describe("#addContact()", () => {
-    it("should add a single contact into the book", () => {
-      expect(this.book.contacts.length).toBe(0);
-      this.book.addContact("Alice", "001-101-1010");
-      expect(this.book.contacts.length).toBe(1);
+    it("should add a single contact into the book", done => {
+      //#2
+      this.book
+        .addContact("Alice", "001-101-1010")
+        .then(contact => {
+          //#3
+          expect(contact.name).toBe("Alice");
+          expect(contact.phone).toBe("001-101-1010");
+          done();
+        })
+        .catch(err => {
+          done();
+        });
     });
+  });
 
-    it("should be defined", () => {
-      expect(ContactController).toBeDefined();
-    });
+  it("should be defined", () => {
+    expect(ContactController).toBeDefined();
   });
 });

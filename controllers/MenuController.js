@@ -1,3 +1,5 @@
+//MenuController will be a JavaScript class with methods to handle receiving requests from the user.
+
 const inquirer = require("inquirer");
 const ContactController = require("./ContactController");
 
@@ -43,7 +45,7 @@ module.exports = class MenuController {
     this.clear();
     inquirer.prompt(this.book.addContactQuestions).then(answers => {
       this.book
-        .addContact(answers.name, answers.phone)
+        .addContact(answers.name, answers.phone, answers.email)
         .then(contact => {
           console.log("Contact added successfully!");
           this.main();

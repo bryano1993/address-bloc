@@ -6,10 +6,6 @@ var Sequelize = require("sequelize");
 var basename = path.basename(__filename);
 var env = process.env.NODE_ENV || "development";
 
-// const config = require(path.join(__dirname, "..", "config", "config.json"))[
-//   env
-// ];
-
 const configPath = path.join(__dirname, "..", "config", "config.json");
 
 const configObj = require(configPath);
